@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosConfig = axios.create({
-    baseURL: 'https://myfinance-p2v8.onrender.com/api/v1.0', // Replace with your API base URL \
+    baseURL: BASE_URL, // Replace with your API base URL \
     headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
