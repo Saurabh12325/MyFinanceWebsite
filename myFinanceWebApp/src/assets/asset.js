@@ -4,4 +4,4 @@ import bg from './bg.jpg';
 export const assets = {
     logo,
     bg
-}
+};
