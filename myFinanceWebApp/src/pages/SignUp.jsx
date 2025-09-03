@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/asset.js";
 import Input from "./Input.jsx";
+import { validateEmail } from "../util/Validation.js";
 
 function SignUp() {
   const [fullName, setFullName] = useState("");
@@ -10,6 +11,22 @@ function SignUp() {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+   const handleSumit = async (e) => {
+    e.preventDefault();
+   }
+  
+   if(fullName.trim()){
+    setError("FullName is required");
+   }
+
+   if(password.trim().length < 6 || !password.includes("@")){
+    setError("Password must be at least 6 characters long");
+    return;
+   }
+   if(!validateEmail(email)){
+    setError("Email is not valid");
+    return;
+   }
 
   return (
     <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-black">
@@ -26,7 +43,7 @@ function SignUp() {
           <p className="text-sm font-semibold text-center text-slate-700 mb-8">
             Start tracking your spendings by joining with us.
           </p>
-          <form className="space-y-4">
+          <form  onSubmit={handleSumit} className="space-y-4">
             <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
               <Input
                 value={fullName}

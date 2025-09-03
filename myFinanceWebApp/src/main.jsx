@@ -5,7 +5,8 @@ import App from './App.jsx'
 import { AppContextProvider } from './Context/AppContext.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <App />
+    {/* <AppContextProvider><App /></AppContextProvider> */}
+      <App/>
   </StrictMode>
   
 )
