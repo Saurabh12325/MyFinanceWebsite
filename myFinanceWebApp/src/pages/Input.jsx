@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaAddressCard, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Input = ({ label, value, onChange, placeholder, type }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,17 +21,16 @@ const Input = ({ label, value, onChange, placeholder, type }) => {
           onChange={(e) => onChange(e)}
           placeholder={placeholder}
         />
-        <div className="relative">
         {type === "password" && (
-          <span className="absolute right-3 translate-y-1/2 top-1/2 cursor-pointer text-gray-500">
+          <span className="absolute right-3 translate-y-1/2 top-1 cursor-pointer text-gray-900">
             {showPassword ? (
-              <FaAddressCard
+              <FaEyeSlash
                 size={20}
                 onClick={togglePasswordVisibility}
-                className="text-red-500"
+                className="text-black"
               />
             ) : (
-              <FaAddressCard
+              <FaEye
                 size={20}
                 onClick={togglePasswordVisibility}
                 className="text-primary"
@@ -39,7 +38,6 @@ const Input = ({ label, value, onChange, placeholder, type }) => {
             )}
           </span>
         )}
-        </div>
       </div>
     </div>
   );
