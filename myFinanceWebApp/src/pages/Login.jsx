@@ -12,16 +12,18 @@ function Login() {
   const navigate = useNavigate();
     const handleSubmit = async (e) => {
     e.preventDefault();
+    
+       if(!validateEmail(email)){
+        setError("Email is not valid");
+        return;
+       }
+         if(password.trim().length < 6 || !password.includes("@")){
+        setError("Password must be at least 6 characters long");
+        return;
+       }
    }
 
-   if(!email.endsWith("@gmail.com") || !/^[A-Za-z0-9 ]$/.match(email)){
-    setError("Email is required");
-    return;
-   }
-   if(password.trim().length < 6 || !password.includes("@")){
-    setError("Password must be at least 6 characters long");
-    return;
-   }
+  
   return (
     <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-black">
       <img

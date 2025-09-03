@@ -14,10 +14,10 @@ const Input = ({ label, value, onChange, placeholder, type }) => {
       <div className="relative">
         <input
           className="w-full bg-transparent outline-none border border-gray-300 rounded-md py-2 px-3 pr-10 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 leading-tight focus:outline-none"
-          // type={
-          //   type === "password" ? (showPassword ? "text" : "password") : type
-          // }
-          type={`${showPassword ? "text" : "password"}`}
+          type={
+            type === "password" ? (showPassword ? "text" : "password") : type
+          }
+          // type={`${showPassword ? "text" : "password"}`}
           value={value}
           onChange={(e) => onChange(e)}
           placeholder={placeholder}

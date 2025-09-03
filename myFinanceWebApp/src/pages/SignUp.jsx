@@ -1,40 +1,70 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { assets } from "../assets/asset.js";
+ // import { assets } from "../assets/asset.js";
 import Input from "./Input.jsx";
 import { validateEmail } from "../util/Validation.js";
+import axiosConfig from "../util/axiosConfig.jsx";
+import { API_ENDPOINTS } from "../util/apiEndPoint.js";
+import toast, { LoaderIcon } from "react-hot-toast";
+import { BASE_URL } from "../util/apiEndPoint.js";
 
 function SignUp() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(""); 
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
    const handleSumit = async (e) => {
     e.preventDefault();
-   }
-  
-   if(fullName.trim()){
-    setError("FullName is required");
-   }
+    setIsLoading(true);
 
-   if(password.trim().length < 6 || !password.includes("@")){
-    setError("Password must be at least 6 characters long");
+    if(!fullName.trim()){
+    setError("FullName is required");
+     setIsLoading(false);
     return;
    }
+ 
    if(!validateEmail(email)){
     setError("Email is not valid");
+    setIsLoading(false);
     return;
    }
+   
+      setError(null);
+      try{
+        const response = await axiosConfig.post(`${BASE_URL}${API_ENDPOINTS.REGISTER}`, {
+          fullName,
+          email,
+          password  
+
+        })
+          
+        if(response.status === 201){
+          toast.success("User Registered Successfully");
+          navigate("/login");
+        }
+         
+      }catch(err){
+        console.log("Something went wrong", err);
+        setError(err.response?.data?.message || "Something went wrong, Please try again later");  
+      }
+      finally{
+        setIsLoading(false);
+      }
+   }
+  
+  
 
   return (
     <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-black">
-      <img
+      {/* <img
         src={assets.bg}
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover backdrop-blur-sm opacity-60"
-      />
+      /> */}
+      <div className="absolute inset-0 w-full h-full object-cover backdrop-blur-sm opacity-70 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 "></div>
       <div className="relative z-10 w-full max-w-lg px-6">
         <div className="bg-white rounded-lg shadow-lg p-4">
           <h3 className="text-2xl font-semibold mb-4 text-center">
@@ -64,8 +94,8 @@ function SignUp() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   label="Password"
-                  placeholder="************"
-                  type="password" 
+                  placeholder= "*****************"
+                  type="password"
                 />
               </div>
             </div>
@@ -74,17 +104,19 @@ function SignUp() {
                 {error}
               </p>
             )}
-            <button
+            <button 
+              disabled={isLoading}
               className="bg-slate-900 rounded-2xl w-full py-3 text-lg text-white font-medium cursor-pointer hover:bg-blue-500 "
               type="submit"
-            >
-              Sign Up
+            >  
+              {isLoading ? ( <LoaderIcon className="w-5 h-5 text-white mx animate-spin"/> ) : "SignUp" }
+
             </button>
-            <p className="text-sm text-slate-800 text-center mt-6">
-              Already have an account?{" "}
+            <p  className="text-sm text-slate-800 text-center mt-6">
+                Already have an account?{" "}
               <span
                 onClick={() => navigate("/login")}
-                className=" text-black font-bold underline hover:text-primary-dark transition-colors cursor-pointer"
+                className="text-black font-bold underline hover:text-primary-dark transition-colors cursor-pointer"
               >
                 Login
               </span>
