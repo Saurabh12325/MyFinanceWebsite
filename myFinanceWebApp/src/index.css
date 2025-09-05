@@ -8,4 +8,6 @@ body{
   background-color: #fcfbfc;
   overflow-x: hidden;
   font-size: large;
+  -webkit-text-size-adjust: 100%;
 }
+/* dv */

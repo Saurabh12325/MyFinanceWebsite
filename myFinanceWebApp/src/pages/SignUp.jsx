@@ -87,7 +87,7 @@ function SignUp() {
                 onChange={(e) => setEmail(e.target.value)}
                 label="Email"
                 placeholder="name@example.com"
-                type="text"
+                type="email"
               />
               <div className="col-span-2">
                 <Input
@@ -106,7 +106,7 @@ function SignUp() {
             )}
             <button 
               disabled={isLoading}
-              className="bg-slate-900 rounded-2xl w-full py-3 text-lg text-white font-medium cursor-pointer hover:bg-blue-500 "
+              className= {`bg-slate-900 rounded-2xl w-full py-3 text-lg text-white font-medium cursor-pointer  flex justify-center items-center gap-2 ${isLoading ? 'opacity-60 cursor-not-allowed': ''}  hover:bg-blue-500`}
               type="submit"
             >  
               {isLoading ? ( <LoaderIcon className="w-5 h-5 text-white mx animate-spin"/> ) : "SignUp" }
