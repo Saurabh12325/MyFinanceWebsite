@@ -13,7 +13,7 @@ const Input = ({ label, value, onChange, placeholder, type }) => {
       <label className="text text-slate-800 block mb-1">{label}</label>
       <div className="relative">
         <input
-          className="w-full bg-transparent outline-none border border-gray-300 rounded-md py-2 px-3 pr-10 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 leading-tight focus:outline-none"
+          className="w-full bg-transparent outline-none border border-gray-500 rounded-md py-2 px-3 pr-10 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 leading-tight focus:outline-none"
           type={
             type === "password" ? (showPassword ? "text" : "password") : type
           }

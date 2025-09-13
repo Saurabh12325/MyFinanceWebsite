@@ -1,86 +1,117 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/asset.js";
 import Input from "./Input.jsx";
+import { validateEmail } from "../util/Validation.js";
+import { LoaderIcon } from "react-hot-toast";
+import { API_ENDPOINTS } from "../util/apiEndPoint.js";
+import axiosConfig from "../util/axiosConfig.jsx";
+import { BASE_URL } from "../util/apiEndPoint.js";
 
 function Login() {
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+   const [isLoading, setIsLoading] = useState(false);
+  const {setUser}= useContext(AppContext);
 
   const navigate = useNavigate();
-    const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-       if(!validateEmail(email)){
-        setError("Email is not valid");
-        return;
-       }
-         if(password.trim().length < 6 || !password.includes("@")){
-        setError("Password must be at least 6 characters long");
-        return;
-       }
-   }
 
-  
+    setError(null);
+    try{
+      const response = await axiosConfig.post(`${BASE_URL}${API_ENDPOINTS.LOGIN}`, {
+        email,
+        password,
+    })
+    const {token ,user} = response.data;
+    if(token){
+      localStorage.setItem("token", token);
+      setUser(user);
+      navigate("/dashboard");
+    }
+  }catch(err){
+    console.log("Something went wrong", err);
+    setError(error.message);  
+  }finally{
+    setIsLoading(false);
+  }
+
+    if (!validateEmail(email)) {
+      setError("Email is not valid");
+      return;
+    }
+    if (password.trim().length < 6 || !password.includes("@")) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
+  }
+
+
   return (
-    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-black">
-      <img
-        src={assets.bg}
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-cover backdrop-blur-sm opacity-60"
-      />
-      <div className="relative z-10 w-full max-w-lg px-6">
-        <div className="bg-white rounded-lg shadow-lg p-4">
-          <h3 className="text-2xl font-semibold mb-4 text-center">
-            Login Yourself
-          </h3>
-          <p className="text-sm font-semibold text-center text-slate-700 mb-8">
-            Start tracking your spendings by joining with us.
-          </p>
-          <form  onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-             <div className="col-span-2">
-              <Input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                label="Email"
-                placeholder="name@example.com"
-                type="text"
-              />
-              </div>
-              <div className="col-span-2">
-                <Input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  label="Password"
-                  placeholder="************"
-                  type="password" 
-                />
-              </div>
-            </div>
-            {error && (
-              <p className="text-red-800 text-sm text-center bg-red-50">
-                {error}
-              </p>
-            )}
-            <button
-              className="bg-slate-900 rounded-2xl w-full py-3 text-lg text-white font-medium cursor-pointer hover:bg-blue-500 "
-              type="submit"
-            >
-              Login
-            </button>
-            <p className="text-sm text-slate-800 text-center mt-6">
-              Does't have an Account ?{" "}
-              <span
-                onClick={() => navigate("/signUp")}
-                className=" text-black font-bold underline hover:text-primary-dark transition-colors cursor-pointer"
-              >
-                SignUp
-              </span>
+    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 flex-col md:flex-row divide-x-3 divide-white ">
+      <div className="w-1/2 flex justify-center items-center inset-0 ">
+        <img
+          src={assets.login}
+          alt="Background"
+          className=" hidden md:block h-[490px] w-[500px] object-cover rounded-sm shadow-2xl shadow-black"
+        />
+      </div>
+      <div className="w-1/2 flex justify-center items-center inset-0  ">
+        <div className="relative z-10 w-full max-w-lg px-6">
+          <div className=" backdrop-blur-sm bg-white/75 rounded-lg p-8 shadow-2xl shadow-black">
+            <h3 className="text-2xl font-semibold mb-4 text-center">
+              Login Yourself
+            </h3>
+            <p className="text-sm font-semibold text-center text-black mb-8">
+              Start tracking your spendings by joining with us.
             </p>
-          </form>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+                <div className="col-span-2">
+                  <Input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    label="Email"
+                    placeholder="name@example.com"
+                    type="text"
+                  />
+                </div>
+                <div className="col-span-2">
+                  <Input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    label="Password"
+                    placeholder="************"
+                    type="password"
+                  />
+                </div>
+              </div>
+              {error && (
+                <p className="text-red-800 text-sm text-center bg-red-50">
+                  {error}
+                </p>
+              )}
+              <button
+                disabled={isLoading}
+                className="bg-slate-900 rounded-2xl w-full py-3 text-lg text-white font-medium cursor-pointer hover:bg-blue-500 "
+                type="submit"
+              >
+                {isLoading ? ( <LoaderIcon className="w-5 h-5 text-white mx animate-spin"/> ) : "Login" }
+              </button>
+              <p className="text-sm text-slate-800 text-center mt-6">
+                Does't have an Account ?{" "}
+                <span
+                  onClick={() => navigate("/signUp")}
+                  className=" text-black font-bold underline hover:text-primary-dark transition-colors cursor-pointer"
+                >
+                  SignUp
+                </span>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </div>

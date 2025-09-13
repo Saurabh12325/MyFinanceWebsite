@@ -1,10 +1,12 @@
 import logo from './logo.png';
 import bg from './bg.jpg';
 import register from './register.avif';
+import login from './login.jpg';
 
 export const assets = {
     logo,
     bg,
-    register
+    register,
+    login
 
 };

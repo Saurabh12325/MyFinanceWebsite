@@ -16,6 +16,7 @@ function App() {
       <Toaster />
       <BrowserRouter>
         <Nav /> 
+        
         <div className="p-1">
           <Routes>
             <Route path="/dashboard" element={<Home />} />
@@ -27,6 +28,7 @@ function App() {
             <Route path="/category" element={<Category />} />
           </Routes>
         </div>
+      
       </BrowserRouter>
     </>
   )

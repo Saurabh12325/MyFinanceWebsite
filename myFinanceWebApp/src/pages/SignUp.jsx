@@ -40,6 +40,11 @@ function SignUp() {
           password  
 
         })
+        const {token ,user} = response.data;
+        if(token){
+          localStorage.setItem("token", token);
+          localStorage.setItem("user", JSON.stringify(user)); 
+        }
           
         if(response.status === 201){
           toast.success("User Registered Successfully");
@@ -71,7 +76,7 @@ function SignUp() {
     
       <div className="w-1/2 flex justify-center items-center inset-0  ">
       <div className="relative z-10 w-full max-w-lg px-6">
-        <div className= " backdrop-blur-2xl bg-white/65 rounded-lg shadow-black shadow-2xl p-4">
+        <div className= " backdrop-blur-xl bg-white/85 rounded-lg shadow-black shadow-2xl p-4">
           <h3 className="text-2xl font-semibold mb-4 text-center">
             Create An Account
           </h3>
