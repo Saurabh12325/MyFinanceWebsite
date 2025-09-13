@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
- // import { assets } from "../assets/asset.js";
+ import { assets } from "../assets/asset.js";
 import Input from "./Input.jsx";
 import { validateEmail } from "../util/Validation.js";
 import axiosConfig from "../util/axiosConfig.jsx";
@@ -58,15 +58,20 @@ function SignUp() {
   
 
   return (
-    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-black">
-      {/* <img
-        src={assets.bg}
+    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 flex-col md:flex-row divide-x-3 divide-black"> 
+
+    <div className="w-1/2 flex justify-center items-center inset-0  ">
+        <img
+        src={assets.register}
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover backdrop-blur-sm opacity-60"
-      /> */}
-      <div className="absolute inset-0 w-full h-full object-cover backdrop-blur-sm opacity-70 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 "></div>
+        className=" hidden md:block h-[450px]  object-cover rounded-sm shadow-2xl shadow-black "
+      />
+    </div>
+     
+    
+      <div className="w-1/2 flex justify-center items-center inset-0  ">
       <div className="relative z-10 w-full max-w-lg px-6">
-        <div className="bg-white rounded-lg shadow-lg p-4">
+        <div className= " backdrop-blur-2xl bg-white/65 rounded-lg shadow-black shadow-2xl p-4">
           <h3 className="text-2xl font-semibold mb-4 text-center">
             Create An Account
           </h3>
@@ -123,6 +128,7 @@ function SignUp() {
             </p>
           </form>
         </div>
+      </div>
       </div>
     </div>
   );
