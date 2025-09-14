@@ -7,48 +7,56 @@ import { LoaderIcon } from "react-hot-toast";
 import { API_ENDPOINTS } from "../util/apiEndPoint.js";
 import axiosConfig from "../util/axiosConfig.jsx";
 import { BASE_URL } from "../util/apiEndPoint.js";
+import { AppContext } from "../context/AppContext.jsx";
 
 function Login() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-   const [isLoading, setIsLoading] = useState(false);
-  const {setUser}= useContext(AppContext);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const { setUser } = useContext(AppContext);
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setError(null);
-    try{
-      const response = await axiosConfig.post(`${BASE_URL}${API_ENDPOINTS.LOGIN}`, {
-        email,
-        password,
-    })
-    const {token ,user} = response.data;
-    if(token){
-      localStorage.setItem("token", token);
-      setUser(user);
-      navigate("/dashboard");
-    }
-  }catch(err){
-    console.log("Something went wrong", err);
-    setError(error.message);  
-  }finally{
-    setIsLoading(false);
-  }
 
+    // --- Validation FIRST ---
     if (!validateEmail(email)) {
       setError("Email is not valid");
       return;
     }
-    if (password.trim().length < 6 || !password.includes("@")) {
-      setError("Password must be at least 6 characters long");
+    if (password.trim().length < 6) {
+      setError("Password must be at least 6 characters long.");
       return;
     }
-  }
 
+    // --- API Call AFTER validation ---
+    setIsLoading(true);
+    try {
+      const response = await axiosConfig.post(`${BASE_URL}${API_ENDPOINTS.LOGIN}`, {
+        email,
+        password,
+      });
+
+      const { token, user } = response.data;
+      if (token) {
+        localStorage.setItem("token", token);
+        setUser(user);
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      console.error("Login failed:", err);
+      // More specific error handling
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message); // Use the error message from the server
+      } else {
+        setError("Login failed. Please check your credentials.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 flex-col md:flex-row divide-x-3 divide-white ">
@@ -59,7 +67,7 @@ function Login() {
           className=" hidden md:block h-[490px] w-[500px] object-cover rounded-sm shadow-2xl shadow-black"
         />
       </div>
-      <div className="w-1/2 flex justify-center items-center inset-0  ">
+      <div className="w-1/2 flex justify-center items-center inset-0  ">
         <div className="relative z-10 w-full max-w-lg px-6">
           <div className=" backdrop-blur-sm bg-white/75 rounded-lg p-8 shadow-2xl shadow-black">
             <h3 className="text-2xl font-semibold mb-4 text-center">
