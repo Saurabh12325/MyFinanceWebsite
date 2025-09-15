@@ -7,7 +7,8 @@ import { LoaderIcon } from "react-hot-toast";
 import { API_ENDPOINTS } from "../util/apiEndPoint.js";
 import axiosConfig from "../util/axiosConfig.jsx";
 import { BASE_URL } from "../util/apiEndPoint.js";
-import { AppContext } from "../context/AppContext.jsx";
+import { AppContext } from "../Context/AppContext.jsx";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ function Login() {
     e.preventDefault();
     setError(null);
 
-    // --- Validation FIRST ---
+   
     if (!validateEmail(email)) {
       setError("Email is not valid");
       return;
@@ -31,7 +32,6 @@ function Login() {
       return;
     }
 
-    // --- API Call AFTER validation ---
     setIsLoading(true);
     try {
       const response = await axiosConfig.post(`${BASE_URL}${API_ENDPOINTS.LOGIN}`, {
@@ -59,7 +59,7 @@ function Login() {
   };
 
   return (
-    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 flex-col md:flex-row divide-x-3 divide-white ">
+    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-t from-emerald-400 to-black/5 flex-col md:flex-row divide-x-3 divide-white ">
       <div className="w-1/2 flex justify-center items-center inset-0 ">
         <img
           src={assets.login}

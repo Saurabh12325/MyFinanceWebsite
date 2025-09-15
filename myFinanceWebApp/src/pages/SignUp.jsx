@@ -8,7 +8,7 @@ import { API_ENDPOINTS } from "../util/apiEndPoint.js";
 import toast, { LoaderIcon } from "react-hot-toast";
 import { BASE_URL } from "../util/apiEndPoint.js";
 import ProfilePhotoSelectors from "../components/ProfilePhotoSelectors.jsx";
-import uploadProfileImage from "../util/uploadProfileImage.js"; // Import the image upload utility
+import uploadProfileImage from "../util/uploadProfileImage.js"; 
 
 function SignUp() {
   const [fullName, setFullName] = useState("");
@@ -76,18 +76,20 @@ function SignUp() {
   };
 
   return (
-    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 flex-col md:flex-row divide-x-3 divide-black">
+    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-t from-emerald-400 to-black  flex-col md:flex-row divide-x-3 divide-white ">
       <div className="w-1/2 flex justify-center items-center inset-0">
         <img
+        
           src={assets.register}
           alt="Background"
-          className="hidden md:block h-[450px] object-cover rounded-sm shadow-2xl shadow-black"
+          className="hidden md:block h-[580px] object-cover rounded-sm shadow-2xl shadow-black"
+          
         />
       </div>
 
       <div className="w-1/2 flex justify-center items-center inset-0">
         <div className="relative z-10 w-full max-w-lg px-6">
-          <div className="backdrop-blur-xl bg-white/85 rounded-lg shadow-black shadow-2xl p-4">
+          <div className="backdrop-blur-xl bg-emerald-400 rounded-lg shadow-black shadow-2xl p-4">
             <h3 className="text-2xl font-semibold mb-4 text-center">
               Create An Account
             </h3>
