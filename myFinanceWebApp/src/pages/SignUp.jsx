@@ -9,6 +9,8 @@ import toast, { LoaderIcon } from "react-hot-toast";
 import { BASE_URL } from "../util/apiEndPoint.js";
 import ProfilePhotoSelectors from "../components/ProfilePhotoSelectors.jsx";
 import uploadProfileImage from "../util/uploadProfileImage.js"; 
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 
 function SignUp() {
   const [fullName, setFullName] = useState("");
@@ -38,22 +40,22 @@ function SignUp() {
     }
 
     setError(null);
-    let imageUrl = null; // Variable to hold the URL from Cloudinary
+    let imageUrl = null; 
 
     try {
-      // --- New Logic: Upload Image First ---
+   
       if (profileImage) {
-        // A profile image was selected, so upload it
+      
         imageUrl = await uploadProfileImage(profileImage);
         console.log("Image uploaded to Cloudinary. URL:", imageUrl);
       }
       
-      // --- Register the User with the Image URL ---
+      
       const response = await axiosConfig.post(`${BASE_URL}${API_ENDPOINTS.REGISTER}`, {
         fullName,
         email,
         password,
-        profileImage: imageUrl, // Pass the image URL (or null if no image was selected)
+        profileImage: imageUrl,
       });
 
       const { token, user } = response.data;
@@ -68,7 +70,7 @@ function SignUp() {
       }
     } catch (err) {
       console.log("Something went wrong", err);
-      // More robust error message for the user
+     
       setError(err.response?.data?.message || "Registration failed. Please try again.");
     } finally {
       setIsLoading(false);
@@ -78,18 +80,24 @@ function SignUp() {
   return (
     <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-t from-emerald-400 to-black  flex-col md:flex-row divide-x-3 divide-white ">
       <div className="w-1/2 flex justify-center items-center inset-0">
-        <img
+        {/* <img
         
           src={assets.register}
           alt="Background"
           className="hidden md:block h-[580px] object-cover rounded-sm shadow-2xl shadow-black"
           
-        />
+        /> */}
+         <DotLottieReact
+      src="https://lottie.host/7f053785-c349-4774-bcbf-b0f102c94f64/ZU2uy7UgAr.lottie"
+      loop
+      autoplay
+      className="hidden md:block h-[500px] object-cover rounded-sm shadow-xl shadow-black"
+    />
       </div>
 
       <div className="w-1/2 flex justify-center items-center inset-0">
         <div className="relative z-10 w-full max-w-lg px-6">
-          <div className="backdrop-blur-xl bg-emerald-400 rounded-lg shadow-black shadow-2xl p-4">
+          <div className="backdrop-blur-xl bg-emerald-300 rounded-lg shadow-black shadow-2xl p-4">
             <h3 className="text-2xl font-semibold mb-4 text-center">
               Create An Account
             </h3>
@@ -98,7 +106,7 @@ function SignUp() {
             </p>
             <form onSubmit={handleSumit} className="space-y-4">
               <div className="flex justify-center items-center mb-4">
-                {/* Correctly pass props to the ProfilePhotoSelectors component */}
+               
                 <ProfilePhotoSelectors image={profileImage} setImage={setProfileImage} />
               </div>
               <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
