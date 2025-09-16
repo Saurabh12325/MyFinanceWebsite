@@ -9,6 +9,7 @@ import Category from './pages/Category.jsx'
 import SignUp from './pages/SignUp.jsx'
 import { Toaster } from "react-hot-toast";
 import Nav from './pages/Nav.jsx'
+import Landing from './pages/Landing.jsx'
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
       <BrowserRouter>
         <Nav /> 
         
-        <div className="p-1">
+        <div className="">
           <Routes>
+            <Route path='/' element={<Landing/>} />
             <Route path="/dashboard" element={<Home />} />
             <Route path="/income" element={<Inome />} />
             <Route path="/expense" element={<Expense />} />

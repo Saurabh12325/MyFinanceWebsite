@@ -97,7 +97,7 @@ function SignUp() {
 
       <div className="w-1/2 flex justify-center items-center inset-0">
         <div className="relative z-10 w-full max-w-lg px-6">
-          <div className="backdrop-blur-xl bg-emerald-300 rounded-lg shadow-black shadow-2xl p-4">
+          <div className="backdrop-blur-xl bg-emerald-300 rounded-lg shadow-2xl p-4">
             <h3 className="text-2xl font-semibold mb-4 text-center">
               Create An Account
             </h3>
