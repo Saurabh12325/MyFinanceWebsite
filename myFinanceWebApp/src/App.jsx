@@ -10,12 +10,23 @@ import SignUp from './pages/SignUp.jsx'
 import { Toaster } from "react-hot-toast";
 import Nav from './pages/Nav.jsx'
 import Landing from './pages/Landing.jsx'
+import SplashScreen from './pages/SplashScreen.jsx'
+import { useEffect } from 'react'
 
 function App() {
+  const [isLoaded, setIsLoaded] = React.useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       <Toaster />
       <BrowserRouter>
+      {isLoaded ? (
+        <>
         <Nav /> 
         
         <div className="">
@@ -30,7 +41,10 @@ function App() {
             <Route path="/category" element={<Category />} />
           </Routes>
         </div>
-      
+        </>
+        ) : (
+       <SplashScreen/>
+       )}
       </BrowserRouter>
     </>
   )
