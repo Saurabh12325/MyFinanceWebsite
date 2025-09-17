@@ -6,7 +6,7 @@ function SplashScreen() {
         <div className='min-h-screen w-full  bg-gradient-to-t from-emerald-400 via-black to-black flex justify-center items-center '>
             <motion.img 
              className=' object-contain '
-             src={assets.Splash} 
+             src={assets.splash} 
              alt="Splash"
              initial={{ scale: 0 }}
              animate={{ rotate: 360, scale: 1.5 }}
@@ -17,7 +17,7 @@ function SplashScreen() {
            
         </div>
 
-// fgd
+
 
     )
 }
