@@ -10,10 +10,10 @@ const Input = ({ label, value, onChange, placeholder, type }) => {
 
   return (
     <div className="mb-4">
-      <label className="text text-slate-800 block mb-1">{label}</label>
+      <label className="text text-white block mb-1">{label}</label>
       <div className="relative">
         <input
-          className="w-full bg-transparent outline-none border border-gray-500 rounded-md py-2 px-3 pr-10 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 leading-tight focus:outline-none"
+          className="w-full text-white bg-transparent outline-none border-2 border-black rounded-md py-2 px-3 pr-10  focus:ring-2 focus:ring-blue-500 focus:border-blue-500 leading-tight focus:outline-none"
           type={
             type === "password" ? (showPassword ? "text" : "password") : type
           }
@@ -23,12 +23,12 @@ const Input = ({ label, value, onChange, placeholder, type }) => {
           placeholder={placeholder}
         />
         {type === "password" && (
-          <span className="absolute right-3 translate-y-1/2 top-1 cursor-pointer text-gray-900">
+          <span className="absolute text-white right-3 translate-y-1/2 top-1 cursor-pointer ">
             {showPassword ? (
               <FaEyeSlash
                 size={20}
                 onClick={togglePasswordVisibility}
-                className="text-black"
+                className="text-white"
               />
             ) : (
               <FaEye

@@ -7,6 +7,7 @@ const ProfilePhotoSelectors = ({ image, setImage }) => {
   const [previewUrl, setPreviewUrl] = useState(null);
 
   const handleImageChange = (e) => {
+    e.preventDefault();
     const file = e.target.files[0];
     if (file) {
       setImage(file);
@@ -15,13 +16,14 @@ const ProfilePhotoSelectors = ({ image, setImage }) => {
     }
   };
 
-  const handleRemoveImage = () => {
+  const handleRemoveImage = (e) => {
+    e.preventDefault();
     setImage(null);
     setPreviewUrl(null);
   };
 
   const onChooseFile = () => {
-    inputRef.current.click();
+    inputRef.current?.click();
   };
 
   return (

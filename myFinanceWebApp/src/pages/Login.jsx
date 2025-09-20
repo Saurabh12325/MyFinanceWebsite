@@ -59,7 +59,7 @@ function Login() {
   };
 
   return (
-    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-t from-emerald-400 to-black/5 flex-col md:flex-row divide-x-3 divide-white ">
+    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-t from-emerald-400 via-black to-black  flex-col md:flex-row divide-x-3 divide-white ">
       <div className="w-1/2 flex justify-center items-center inset-0 ">
         <img
           src={assets.login}
@@ -69,11 +69,11 @@ function Login() {
       </div>
       <div className="w-1/2 flex justify-center items-center inset-0  ">
         <div className="relative z-10 w-full max-w-lg px-6">
-          <div className=" backdrop-blur-sm bg-white/75 rounded-lg p-8 shadow-2xl shadow-black">
-            <h3 className="text-2xl font-semibold mb-4 text-center">
+          <div className=" backdrop-blur-2xl bg-white/20 rounded-lg p-8 shadow-2xl shadow-black">
+            <h3 className="text-2xl font-semibold mb-4 text-center text-white">
               Login Yourself
             </h3>
-            <p className="text-sm font-semibold text-center text-black mb-8">
+            <p className="text-sm font-semibold text-center text-white mb-8">
               Start tracking your spendings by joining with us.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">

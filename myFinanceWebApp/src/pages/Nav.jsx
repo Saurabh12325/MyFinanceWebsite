@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="bg-gradient-to-r from-black  to-emerald-500  text-white p-4 shadow-md">
+    <nav className="bg-gradient-to-r from-black via-black  to-emerald-500  text-white p-4 shadow-md">
       <ul className="flex space-x-6">
         <li>
           <Link to="/dashboard" className="hover:text-yellow-300">Dashboard</Link>

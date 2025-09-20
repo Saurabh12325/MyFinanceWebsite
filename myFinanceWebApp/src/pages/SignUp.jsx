@@ -78,7 +78,7 @@ function SignUp() {
   };
 
   return (
-    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-t from-emerald-400 to-black  flex-col md:flex-row divide-x-3 divide-white ">
+    <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-t from-emerald-400 via-black to-black  flex-col md:flex-row divide-x-3 divide-white ">
       <div className="w-1/2 flex justify-center items-center inset-0">
         {/* <img
         
@@ -91,17 +91,17 @@ function SignUp() {
       src="https://lottie.host/7f053785-c349-4774-bcbf-b0f102c94f64/ZU2uy7UgAr.lottie"
       loop
       autoplay
-      className="hidden md:block h-[500px] object-cover rounded-sm shadow-xl shadow-black"
+      className="hidden md:block h-[500px] object-cover rounded-sm"
     />
       </div>
 
       <div className="w-1/2 flex justify-center items-center inset-0">
         <div className="relative z-10 w-full max-w-lg px-6">
-          <div className="backdrop-blur-xl bg-emerald-300 rounded-lg shadow-2xl p-4">
-            <h3 className="text-2xl font-semibold mb-4 text-center">
+          <div className="backdrop-blur-xl bg-white/20  rounded-lg shadow-2xl p-4">
+            <h3 className="text-2xl font-semibold mb-4 text-center text-white">
               Create An Account
             </h3>
-            <p className="text-sm font-semibold text-center text-slate-700 mb-8">
+            <p className="text-sm font-semibold text-center text-white mb-8">
               Start tracking your spendings by joining with us.
             </p>
             <form onSubmit={handleSumit} className="space-y-4">
