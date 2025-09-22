@@ -1,7 +1,8 @@
 import React, { useContext, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
-import { Menu, X } from 'lucide-react';
+import { Menu, User, User2, User2Icon, X } from 'lucide-react';
+import { assets } from '../assets/asset';
 
 function MenuBar() {
     const[openSidebar,setOpenSidebar]=useState(false)
@@ -19,9 +20,33 @@ function MenuBar() {
                 className='block lg:hidden text-2xl p-2 hover:bg-gray-100  rounded-md'>
                     {openSidebar ? <X className='text-black text-2xl'/> : <Menu className='text-black text-2xl'/>}
                 </button>
+                <div className='flex items-center gap-2'>
+                    <img src={assets.ss} alt="logo"  className='h-10 w-10'/>
+                    <span className='text-xl font-medium text-black'>MyFinance</span>
+                </div>
             </div>
             {/*Right side -Avatar photo*/}
-            <span> right side -Menu button and tittle</span>
+           <div className='relative' ref={dropdownRef}>
+              <button
+              onClick={()=>setShowDropdown(!showDropdown)}
+               className='flex item-center justify-center w-10 cursor-pointer h-10 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500  focus:ring-offset-2'>
+               <User className='text-purple-500'/>
+         </button>
+            {showDropdown && (
+                <div className='absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50'>
+                   <div className='px-4 py-3 border-b border-gray-100'>
+                    <div className='flex items-center gap-3'>
+                        <div className='flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full'>
+                            <User className='w-4 h-4 text-purple-600' />
+
+                        </div>
+
+                    </div>
+                   </div>
+                </div>
+            )}
+
+           </div>
             {/*Mobile side Menu*/}
             <span> Left side -Menu button and tittle</span>
         </div>
