@@ -32,8 +32,8 @@ function App() {
         <div className="">
           <Routes>
             <Route path='/' element={<Landing/>} />
-            <Route path="/dashboard" element={<Home />} />
-            <Route path="/income" element={<Inome />} />
+            <Route path="/home" element={<Home/>} />
+            <Route path="/income" element={<Inome/>} />
             <Route path="/expense" element={<Expense />} />
             <Route path="/filter" element={<Filter />} />
             <Route path="/login" element={<Login />} />
