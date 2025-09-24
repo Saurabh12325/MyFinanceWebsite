@@ -4,9 +4,13 @@ export const AppContext = createContext();
  export const AppContextProvider = ({ children }) => {
 
     const[user, setUser] = useState(null);
+    const clearUSer = ()=>{
+        setUser(null)
+    }
     const constValue ={
         user,
-        setUser
+        setUser,
+        clearUSer
     }
     return (
         <AppContext.Provider value={constValue}>

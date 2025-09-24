@@ -9,10 +9,14 @@ function MenuBar() {
     const[showDropdown,setShowDropdown]=useState(false)
     const dropdownRef = useRef(null) // This is the corrected line
     const navigate = useNavigate();
-    const {user} = useContext(AppContext)
+    const {user ,clearUser} = useContext(AppContext)
 
-    const handleLogout = (e) => {
-        const data = localStorage.removeItem(token);
+    const handleLogout = () => {
+         localStorage.clear();
+         clearUser();
+         showDropdown((false))
+        navigate("/login")
+     
         
     }
 
@@ -49,7 +53,7 @@ function MenuBar() {
                         
                        <div className='flex-1 min-w-0'>
                         <p className='text-sm font-medium text-gray-800 truncate'>Testing user</p>
-                        <p className='text-sm font-medium text-gray-800 truncate'>Testing Email</p>
+                        <p className='text-sm font-medium text-gray-800 truncate'>saurabhsri.mau@gmail.com</p>
                        </div> 
                     </div>
                    </div>
@@ -60,7 +64,7 @@ function MenuBar() {
                     onClick={handleLogout}
                      className='flex items-center gap-3 w-half p-4 cursor-pointer '>
                         <LogOutIcon className='text-red-600 hover:text-black'/>
-
+                        <span>Logout</span>
                      </button>
                     
                   </div>
