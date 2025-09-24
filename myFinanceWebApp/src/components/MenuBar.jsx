@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
-import { Menu, User, User2, User2Icon, X } from 'lucide-react';
+import { LogOutIcon, Menu, User, User2, User2Icon, X } from 'lucide-react';
 import { assets } from '../assets/asset';
 
 function MenuBar() {
@@ -10,6 +10,11 @@ function MenuBar() {
     const dropdownRef = useRef(null) // This is the corrected line
     const navigate = useNavigate();
     const {user} = useContext(AppContext)
+
+    const handleLogout = (e) => {
+        const data = localStorage.removeItem(token);
+        
+    }
 
     return (
         <div className='flex itam-center justify-between gap-5 bg-white border border-b border-graey-200/5'>
@@ -33,7 +38,8 @@ function MenuBar() {
                <User className='text-purple-500'/>
          </button>
             {showDropdown && (
-                <div className='absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50'>
+                  <div>
+                <div className='absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border-gray-200 py-1 z-50'>
                    <div className='px-4 py-3 border-b border-gray-100'>
                     <div className='flex items-center gap-3'>
                         <div className='flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full'>
@@ -41,13 +47,29 @@ function MenuBar() {
 
                         </div>
                         
-                       {/* <div className='flex-1 min-w-0'>
-                        <p className='text-sm font-medium text-gray-800 truncate'>{user.fullName}</p>
-                        <p className='text-sm font-medium text-gray-800 truncate'>{user.email}</p>
-                       </div> */}
+                       <div className='flex-1 min-w-0'>
+                        <p className='text-sm font-medium text-gray-800 truncate'>Testing user</p>
+                        <p className='text-sm font-medium text-gray-800 truncate'>Testing Email</p>
+                       </div> 
                     </div>
                    </div>
+                     
+                       {/* drop down options */}
+                  <div className='py-1'>
+                     <button 
+                    onClick={handleLogout}
+                     className='flex items-center gap-3 w-half p-4 cursor-pointer '>
+                        <LogOutIcon className='text-red-600 hover:text-black'/>
+
+                     </button>
+                    
+                  </div>
                 </div>
+                 
+                </div>
+   
+         
+               
             )}
 
            </div>
