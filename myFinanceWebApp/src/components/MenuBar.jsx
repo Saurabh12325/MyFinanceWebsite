@@ -28,7 +28,7 @@ function MenuBar() {
             {/*Right side -Avatar photo*/}
            <div className='relative' ref={dropdownRef}>
               <button
-              onClick={()=>setShowDropdown(!showDropdown)}
+              onMouseEnter={()=>setShowDropdown(!showDropdown)}
                className='flex item-center justify-center w-10 cursor-pointer h-10 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500  focus:ring-offset-2'>
                <User className='text-purple-500'/>
          </button>
@@ -41,10 +41,10 @@ function MenuBar() {
 
                         </div>
                         
-                       <div className='flex-1 min-w-0'>
+                       {/* <div className='flex-1 min-w-0'>
                         <p className='text-sm font-medium text-gray-800 truncate'>{user.fullName}</p>
                         <p className='text-sm font-medium text-gray-800 truncate'>{user.email}</p>
-                       </div>
+                       </div> */}
                     </div>
                    </div>
                 </div>
