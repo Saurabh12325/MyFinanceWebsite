@@ -7,6 +7,18 @@ const Dashboard = () => {
     return (    
         <div>
             <MenuBar/>
+            {user && (
+              
+              <div className="flex">
+                <div className="max-[1080px]:hidden">
+                     left side bar
+                     
+                </div>
+                <div>
+                    right side bar
+                </div>
+              </div>
+            )}
 
         </div>
     )
