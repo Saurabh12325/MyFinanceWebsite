@@ -91,7 +91,7 @@ function SignUp() {
       src="https://lottie.host/7f053785-c349-4774-bcbf-b0f102c94f64/ZU2uy7UgAr.lottie"
       loop
       autoplay
-      className=" h-[500px] max-md:h-[300px] object-cover rounded-sm  "
+      className=" h-[500px] max-md:h-[270px] object-cover rounded-sm  "
     />
       </div>
 
