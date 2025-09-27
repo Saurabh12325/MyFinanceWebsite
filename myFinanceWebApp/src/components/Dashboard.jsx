@@ -3,12 +3,12 @@ import MenuBar from "./MenuBar"
 import { AppContext } from "../Context/AppContext"
 import SideBar from "./SideBar"
 
-const Dashboard = () => {
-    const {user} = useContext(AppContext)
+const Dashboard = ({children}) => {
+  
     return (    
         <div>
             <MenuBar/>
-            {user && (
+        
               
               <div className="flex">
                 <div className="max-[1080px]:hidden">
@@ -16,10 +16,10 @@ const Dashboard = () => {
                   
                 </div>
                 <div className="grow mx-5">
-                    right side bar
+                   {children}
                 </div>
               </div>
-            )}
+          
 
         </div>
     )

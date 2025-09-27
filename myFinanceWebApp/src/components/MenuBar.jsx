@@ -80,7 +80,7 @@ function MenuBar() {
 
            </div>
             {openSidebar && (
-               <div className="fixed left-0 right-0 bg-white border-b border-gray-200 lg:hidden z-30 top-[73px]">
+               <div className="fixed left-0  bg-white border-b border-gray-200 lg:hidden  top-[48px] z-30">
                  <SideBar/>
                </div>
               

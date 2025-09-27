@@ -3,7 +3,11 @@ import Dashboard from '../components/Dashboard'
 
 function Home() {
     return (
-        <div><Dashboard/></div>
+        
+            <Dashboard>
+                This is home page
+            </Dashboard>
+            
     )
 }
 
