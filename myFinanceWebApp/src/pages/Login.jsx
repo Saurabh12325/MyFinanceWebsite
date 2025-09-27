@@ -8,6 +8,7 @@ import { API_ENDPOINTS } from "../util/apiEndPoint.js";
 import axiosConfig from "../util/axiosConfig.jsx";
 import { BASE_URL } from "../util/apiEndPoint.js";
 import { AppContext } from "../Context/AppContext.jsx";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 
 function Login() {
@@ -60,14 +61,20 @@ function Login() {
 
   return (
     <div className="h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-t from-emerald-400 via-black to-black  flex-col md:flex-row divide-x-3 divide-white ">
-      <div className="w-1/2 flex justify-center items-center inset-0 ">
-        <img
+      <div className="w-1/2 max-md:w-[200%]  flex justify-center items-center inset-0 ">
+        {/* <img
           src={assets.login}
           alt="Background"
           className=" hidden md:block h-[490px] w-[500px] object-cover rounded-sm shadow-2xl shadow-black"
-        />
+        /> */}
+           <DotLottieReact
+      src="https://lottie.host/5b8747b1-5388-439c-ad53-68bf60ae1f79/yhqJgbQDsr.lottie"
+      loop
+      autoplay
+      className=" h-[500px] max-md:h-[270px] object-cover rounded-sm  "
+    />
       </div>
-      <div className="w-1/2 flex justify-center items-center inset-0  ">
+      <div className="w-1/2 max-md:w-[100%] flex justify-center items-center inset-0  ">
         <div className="relative z-10 w-full max-w-lg px-6">
           <div className=" backdrop-blur-2xl bg-white/20 rounded-lg p-8 shadow-2xl shadow-black">
             <h3 className="text-2xl font-semibold mb-4 text-center text-white">
