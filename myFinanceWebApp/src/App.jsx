@@ -8,7 +8,7 @@ import Login from './pages/Login.jsx'
 import Category from './pages/Category.jsx'
 import SignUp from './pages/SignUp.jsx'
 import { Toaster } from "react-hot-toast";
-import Nav from './pages/Nav.jsx'
+
 import Landing from './pages/Landing.jsx'
 import SplashScreen from './pages/SplashScreen.jsx'
 import { useEffect } from 'react'
@@ -27,8 +27,6 @@ function App() {
       <BrowserRouter>
       {isLoaded ? (
         <>
-      
-        
         <div className="">
           <Routes>
             <Route path='/' element={<Landing/>} />

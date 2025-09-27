@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
-import { LogOutIcon, Menu, User, User2, User2Icon, X } from 'lucide-react';
+import { LogOutIcon, Menu, Sidebar, User, User2, User2Icon, X } from 'lucide-react';
 import { assets } from '../assets/asset';
 import SideBar from './SideBar';
 
@@ -22,7 +22,7 @@ function MenuBar() {
     }
 
     return (
-        <div className='flex itam-center justify-between gap-5 bg-white border border-b border-graey-200/5'>
+        <div className='flex item-center justify-between gap-5 bg-white border border-b border-graey-200/5'>
             {/* Left Section -Menu button and tittle  */}
             <div className="flex item-center gap-5">
                 <button 
@@ -73,14 +73,18 @@ function MenuBar() {
                 </div>
                  
                 </div>
-   
+               
          
                
             )}
 
            </div>
-            {/*Mobile side Menu*/}
-            <span> Left side -Menu button and tittle</span>
+            {openSidebar && (
+               <div className="fixed left-0 right-0 bg-white border-b border-gray-200 lg:hidden z-30 top-[73px]">
+                 <SideBar/>
+               </div>
+              
+            )}
         </div>
     )
 }
