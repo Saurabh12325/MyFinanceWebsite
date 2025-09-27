@@ -43,7 +43,7 @@ function Login() {
       if (token) {
         localStorage.setItem("token", token);
         setUser(user);
-        navigate("/dashboard");
+        navigate("/home");
       }
     } catch (err) {
       console.error("Login failed:", err);
@@ -104,10 +104,10 @@ function Login() {
               )}
               <button
                 disabled={isLoading}
-                className="bg-slate-900 rounded-2xl w-full py-3 text-lg text-white font-medium cursor-pointer hover:bg-blue-500 "
+                className="bg-slate-900 rounded-2xl w-full py-3 text-lg text-white font-medium cursor-pointer flex justify-center items-center hover:bg-blue-500 "
                 type="submit"
               >
-                {isLoading ? ( <LoaderIcon className="w-5 h-5 text-white mx animate-spin"/> ) : "Login" }
+                {isLoading ? ( <LoaderIcon className="w-10 h-10 text-white mx  animate-spin"/> ) : "Login" }
               </button>
               <p className="text-sm text-slate-800 text-center mt-6">
                 Does't have an Account ?{" "}

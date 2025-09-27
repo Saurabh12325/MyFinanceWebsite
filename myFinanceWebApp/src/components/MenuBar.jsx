@@ -7,14 +7,14 @@ import { assets } from '../assets/asset';
 function MenuBar() {
     const[openSidebar,setOpenSidebar]=useState(false)
     const[showDropdown,setShowDropdown]=useState(false)
-    const dropdownRef = useRef(null) // This is the corrected line
+    const dropdownRef = useRef(null) // 
     const navigate = useNavigate();
     const {user ,clearUser} = useContext(AppContext)
 
     const handleLogout = () => {
          localStorage.clear();
-         clearUser();
-         showDropdown((false))
+         clearUser;
+         setShowDropdown(false)
         navigate("/login")
      
         
@@ -52,8 +52,8 @@ function MenuBar() {
                         </div>
                         
                        <div className='flex-1 min-w-0'>
-                        <p className='text-sm font-medium text-gray-800 truncate'>Testing user</p>
-                        <p className='text-sm font-medium text-gray-800 truncate'>saurabhsri.mau@gmail.com</p>
+                        <p className='text-sm font-medium text-gray-800 truncate'>{user.fullName}</p>
+                        <p className='text-sm font-medium text-gray-800 truncate'>{user.email}</p>
                        </div> 
                     </div>
                    </div>
