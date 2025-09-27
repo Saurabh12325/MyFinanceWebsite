@@ -13,7 +13,7 @@ function Landing() {
   return (
     <>
       <div className="w-full h-screen flex justify-center items-center bg-gradient-to-b from-black via-black to-emerald-500">
-        <div className="text-white text-center text-5xl font-bold font-serif w-3/ relative bottom-40 max-md:text-3xl  ">
+        <div className="text-white text-center text-5xl font-bold font-serif w-3/ relative bottom-40 max-md:text-3xl max-md:p-4   ">
           <ReactTyped
             strings={[
               "Welcome to MyFinance – your smart platform for financial growth and management.",
