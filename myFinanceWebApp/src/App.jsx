@@ -27,7 +27,7 @@ function App() {
       <BrowserRouter>
       {isLoaded ? (
         <>
-        <Nav /> 
+      
         
         <div className="">
           <Routes>

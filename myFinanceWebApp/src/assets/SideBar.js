@@ -1,6 +1,6 @@
 import { Coins, Filter, LayoutDashboard, List, Wallet } from "lucide-react";
 
-export const SIDE_BAE_DATA = [
+export const SIDE_BAR_DATA = [
 {
     id:"01",
     label:"Dashboard",

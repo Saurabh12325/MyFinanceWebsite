@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
 import { LogOutIcon, Menu, User, User2, User2Icon, X } from 'lucide-react';
 import { assets } from '../assets/asset';
+import SideBar from './SideBar';
 
 function MenuBar() {
     const[openSidebar,setOpenSidebar]=useState(false)
@@ -27,7 +28,8 @@ function MenuBar() {
                 <button 
                 onClick={()=>setOpenSidebar(!openSidebar)}
                 className='block lg:hidden text-2xl p-2 hover:bg-gray-100  rounded-md'>
-                    {openSidebar ? <X className='text-black text-2xl'/> : <Menu className='text-black text-2xl'/>}
+                    {openSidebar ? <X className='text-black text-2xl'/> 
+                    : <Menu className='text-black text-2xl'/>}
                 </button>
                 <div className='flex items-center gap-2'>
                     <img src={assets.ss} alt="logo"  className='h-10 w-10'/>
