@@ -1,8 +1,11 @@
 import React from 'react'
+import Dashboard from '../components/Dashboard'
 
 function Expense() {
     return (
-        <div>Expense</div>
+        <Dashboard>
+                This is Expense page
+            </Dashboard>
     )
 }
 

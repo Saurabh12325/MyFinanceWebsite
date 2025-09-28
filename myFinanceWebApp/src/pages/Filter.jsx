@@ -1,8 +1,11 @@
 import React from 'react'
+import Dashboard from '../components/Dashboard'
 
 function Filter() {
     return (
-        <div>Filter</div>
+     <Dashboard>
+                This is home page
+            </Dashboard>
     )
 }
 

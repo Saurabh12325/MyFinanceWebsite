@@ -29,6 +29,6 @@ export const SIDE_BAR_DATA = [
     id:"05",
     label:"Filter",
     icon:Filter,
-    path:"/filer"
+    path:"/filter"
 },
 ]
