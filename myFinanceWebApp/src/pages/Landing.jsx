@@ -17,7 +17,7 @@ function Landing() {
   return (
     <>
      
-      <div className={`w-full h-screen flex justify-center items-center ${theme === 'dark' ? 'bg-black text-white' : 'bg-gradient-to-b from-black via-black to-emerald-500 text-white'}`}>
+      <div className={`w-full h-screen flex justify-center items-center ${theme === 'dark' ? 'bg-gradient-to-b from-white via-white to-emerald-500 text-black ' : 'bg-gradient-to-b from-black via-black to-emerald-500 text-white'}`}>
          <div className="absolute top-10 right-5">
            <button
             onClick={toggleTheme}
@@ -26,10 +26,12 @@ function Landing() {
             <Moon/>
           </button>
         </div>
-        <div className="text-white text-center text-5xl font-bold font-serif w-3/ relative bottom-40 max-md:text-3xl max-md:p-4   ">
+        <div className=" text-center font-bold font-serif  relative bottom-40  max-md:p-5   ">
+              <h1 className="text-7xl max-md:text-3xl mb-10">Welcome to MyFinance</h1>
           <ReactTyped
+          className="text-3xl max-md:text-xl"
             strings={[
-              "Welcome to MyFinance – your smart platform for financial growth and management.",
+              "Your smart platform for financial growth and management.",
               "Track your expenses easily ",
               "Manage your budget smartly ",
               "Grow your wealth with confidence "
@@ -42,14 +44,14 @@ function Landing() {
         </div>
           <div className="absolute p-4 flex justify-center items-center">
           
-        <div className=" backdrop-blur-sm mx-5 bg-white/0 p-4 rounded-2xl border-2 hover:scale-105 duration-300  text-white text-2xl font-semibold cursor-pointer hover:bg-emerald-500 animate-bounce">
+        <div className=" backdrop-blur-sm mx-5 bg-white/0 p-4 rounded-2xl border-2 hover:scale-105 duration-300   text-2xl font-semibold cursor-pointer hover:bg-emerald-500 animate-bounce">
           <button
           onClick={handleNavigate}
            className="cursor-pointer shadow-2xl hover:text-black" >SignUp 
             
           </button>
         </div>
-         <div className=" backdrop-blur-sm bg-white/0 p-4 rounded-2xl border-2 hover:scale-105 duration-300  text-white text-2xl font-semibold cursor-pointer hover:bg-emerald-500 animate-bounce">
+         <div className=" backdrop-blur-sm bg-white/0 p-4 rounded-2xl border-2 hover:scale-105 duration-300   text-2xl font-semibold cursor-pointer hover:bg-emerald-500 animate-bounce">
           <button
           onClick={handleLogin}
            className="cursor-pointer shadow-2xl hover:text-black" >Login
