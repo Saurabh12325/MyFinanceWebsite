@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 import { AppContext } from "../Context/AppContext";
 import { FaThemeco, FaToggleOn } from "react-icons/fa";
-import { Moon, ToggleLeft, ToggleLeftIcon, ToggleRightIcon } from "lucide-react";
+import { Moon, MoonIcon, Sun, ToggleLeft, ToggleLeftIcon, ToggleRightIcon } from "lucide-react";
 
 function Landing() {
   const navigate = useNavigate();
@@ -17,13 +17,13 @@ function Landing() {
   return (
     <>
      
-      <div className={`w-full h-screen flex justify-center items-center ${theme === 'dark' ? 'bg-gradient-to-b from-white via-white to-emerald-500 text-black ' : 'bg-gradient-to-b from-black via-black to-emerald-500 text-white'}`}>
+      <div className={`w-full h-screen flex justify-center items-center ${theme === 'dark' ? 'bg-gradient-to-b from-white via-white to-emerald-600 text-black ' : 'bg-gradient-to-b from-black via-black to-emerald-500 text-white'}`}>
          <div className="absolute top-10 right-5">
            <button
             onClick={toggleTheme}
-            className="backdrop-blur-sm mx-5 bg-white/0 p-4 rounded-2xl border-2 hover:scale-105 duration-300 text-2xl font-semibold cursor-pointer hover:bg-emerald-500 "
+            className={`backdrop-blur-sm mx-5  p-4 rounded-2xl border-2 hover:scale-105 duration-300 text-2xl font-semibold cursor-pointer ${theme === 'dark' ? 'bg-emerald-600 text-white  font-bold hover:text-black' : ' bg-black'} `}
           >
-            <Moon/>
+            {theme === 'dark' ? <MoonIcon /> : <Sun />}
           </button>
         </div>
         <div className=" text-center font-bold font-serif  relative bottom-40  max-md:p-5   ">
@@ -44,17 +44,17 @@ function Landing() {
         </div>
           <div className="absolute p-4 flex justify-center items-center">
           
-        <div className=" backdrop-blur-sm mx-5 bg-white/0 p-4 rounded-2xl border-2 hover:scale-105 duration-300   text-2xl font-semibold cursor-pointer hover:bg-emerald-500 animate-bounce">
+        <div className={` backdrop-blur-sm mx-5   p-4 rounded-2xl border-2 hover:scale-105 duration-300   text-2xl font-semibold cursor-pointer  animate-bounce ${theme === 'dark'? 'bg-emerald-600 text-white':'bg-white/0'}`}>
           <button
           onClick={handleNavigate}
-           className="cursor-pointer shadow-2xl hover:text-black" >SignUp 
+           className="cursor-pointer shadow-2xl " >SignUp 
             
           </button>
         </div>
-         <div className=" backdrop-blur-sm bg-white/0 p-4 rounded-2xl border-2 hover:scale-105 duration-300   text-2xl font-semibold cursor-pointer hover:bg-emerald-500 animate-bounce">
+         <div className={` backdrop-blur-sm mx-5   p-4 rounded-2xl border-2 hover:scale-105 duration-300   text-2xl font-semibold cursor-pointer  animate-bounce ${theme === 'dark'? 'bg-emerald-600 text-white':'bg-white/0'}`}>
           <button
           onClick={handleLogin}
-           className="cursor-pointer shadow-2xl hover:text-black" >Login
+           className="cursor-pointer shadow-2xl" >Login
             
           </button>
         </div>
