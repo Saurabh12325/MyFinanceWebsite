@@ -5,7 +5,7 @@ import { LogOutIcon, Menu, Sidebar, User, User2, User2Icon, X } from 'lucide-rea
 import { assets } from '../assets/asset';
 import SideBar from './SideBar';
 
-function MenuBar() {
+function MenuBar({activeMenu}) {
     const[openSidebar,setOpenSidebar]=useState(false)
     const[showDropdown,setShowDropdown]=useState(false)
     const dropdownRef = useRef(null) // 
@@ -81,7 +81,7 @@ function MenuBar() {
            </div>
             {openSidebar && (
                <div className="fixed left-0  bg-white border-b border-gray-200 lg:hidden  top-[48px] z-30">
-                 <SideBar/>
+                 <SideBar activeMenu={activeMenu}/>
                </div>
               
             )}

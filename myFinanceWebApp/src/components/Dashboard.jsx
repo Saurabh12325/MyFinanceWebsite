@@ -3,16 +3,16 @@ import MenuBar from "./MenuBar"
 import { AppContext } from "../Context/AppContext"
 import SideBar from "./SideBar"
 
-const Dashboard = ({children}) => {
+const Dashboard = ({children,activeMenu}) => {
   
     return (    
         <div>
-            <MenuBar/>
+            <MenuBar activeMenu={activeMenu}/>
         
               
               <div className="flex">
                 <div className="max-[1080px]:hidden">
-                     <SideBar/>
+                     <SideBar activeMenu={activeMenu}/>
                   
                 </div>
                 <div className="grow mx-5">
