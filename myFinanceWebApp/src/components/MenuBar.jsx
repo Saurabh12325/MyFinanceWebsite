@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
 import { LogOutIcon, Menu, Sidebar, User, User2, User2Icon, X } from 'lucide-react';
@@ -11,14 +11,27 @@ function MenuBar({activeMenu}) {
     const dropdownRef = useRef(null) // 
     const navigate = useNavigate();
     const {user ,clearUser} = useContext(AppContext)
+  
+    useEffect(()=>{
+        const handleClickOutSide = (event)=>{
+            setShowDropdown(false);
+        }
+    
+  
+    if(showDropdown){
+        document.addEventListener("mousedown",handleClickOutSide);
+    }
+    return ()=>{
+        document.removeEventListener("mousedown",handleClickOutSide);
+    }
+},[showDropdown])
 
     const handleLogout = () => {
          localStorage.clear();
          clearUser;
          setShowDropdown(false)
         navigate("/login")
-     
-        
+    
     }
 
     return (
@@ -39,7 +52,7 @@ function MenuBar({activeMenu}) {
             {/*Right side -Avatar photo*/}
            <div className='relative' ref={dropdownRef}>
               <button
-              onMouseEnter={()=>setShowDropdown(!showDropdown)}
+              onClick={()=>setShowDropdown(!showDropdown)}
                className='flex item-center justify-center w-10 cursor-pointer h-10 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500  focus:ring-offset-2'>
                <User className='text-purple-500'/>
          </button>
