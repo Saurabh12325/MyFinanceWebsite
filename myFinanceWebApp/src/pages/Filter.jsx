@@ -3,7 +3,7 @@ import Dashboard from '../components/Dashboard'
 
 function Filter() {
     return (
-     <Dashboard>
+     <Dashboard activeMenu="Filter">
                 This is home page
             </Dashboard>
     )

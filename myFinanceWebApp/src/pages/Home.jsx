@@ -4,7 +4,7 @@ import Dashboard from '../components/Dashboard'
 function Home() {
     return (
         
-            <Dashboard>
+            <Dashboard activeMenu="Dashboard">
                 This is home page
             </Dashboard>
             

@@ -3,7 +3,7 @@ import Dashboard from '../components/Dashboard'
 
 function Income() {
     return (
-         <Dashboard>
+         <Dashboard activeMenu="Income">
                 This is income page
             </Dashboard>
     )
