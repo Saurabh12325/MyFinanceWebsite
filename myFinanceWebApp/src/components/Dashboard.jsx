@@ -4,13 +4,13 @@ import { AppContext } from "../Context/AppContext"
 import SideBar from "./SideBar"
 
 const Dashboard = ({children,activeMenu}) => {
+  const {user} = useContext(AppContext)
   
     return (    
         <div>
             <MenuBar activeMenu={activeMenu}/>
-        
-              
-              <div className="flex">
+        {user &&  
+         <div className="flex">
                 <div className="max-[1080px]:hidden">
                      <SideBar activeMenu={activeMenu}/>
                   
@@ -18,7 +18,9 @@ const Dashboard = ({children,activeMenu}) => {
                 <div className="grow mx-5">
                    {children}
                 </div>
-              </div>
+              </div>}
+              
+           
           
 
         </div>
