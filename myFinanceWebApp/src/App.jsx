@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Inome from './pages/Income.jsx'
 import Expense from './pages/Expense.jsx'
@@ -30,6 +30,7 @@ function App() {
         <div className="">
           <Routes>
             <Route path='/' element={<Landing/>} />
+            <Route path='/root' element={<Root/>}/>
             <Route path="/dashboard" element={<Home/>} />
             <Route path="/income" element={<Inome/>} />
             <Route path="/expense" element={<Expense />} />
@@ -45,6 +46,15 @@ function App() {
        )}
       </BrowserRouter>
     </>
+  )
+}
+
+const Root = () =>{
+  const isAuthenticated = !!localStorage.getItem("token");
+  return isAuthenticated?(
+    <Navigate to="/dashboard"/>
+  ):(
+    <Navigate to="/login"/>
   )
 }
 
