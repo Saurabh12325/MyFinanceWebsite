@@ -28,5 +28,9 @@ export const useUser = () =>{
             }
             
         }
-    })
+        fetchUserData();
+        return()=>{
+            isMounted=false;
+        }
+    },[setUser,clearUser,navigate]);
 }
