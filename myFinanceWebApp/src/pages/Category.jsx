@@ -2,8 +2,14 @@ import React from 'react'
 import Dashboard from '../components/Dashboard'
 import { Plus, PlusCircle, PlusIcon, PlusSquareIcon } from 'lucide-react'
 import { FaPlus } from 'react-icons/fa'
+import { useUser } from '../hook/useUser'
+import CategoryList from '../components/CategoryList'
 
 function Category() {
+    
+    useUser();
+
+
     return (
         <div>
              <Dashboard activeMenu="Category">
@@ -15,10 +21,10 @@ function Category() {
                    <Plus size={30}/>
                    Add Category
                   </button>
-                
-                    
                 </div>
-              </div>
+                <CategoryList/>
+               </div>
+              
             </Dashboard>
         </div>
     )

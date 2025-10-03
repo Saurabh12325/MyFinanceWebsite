@@ -31,13 +31,13 @@ function App() {
           <Routes>
             <Route path='/' element={<Landing/>} />
             <Route path='/root' element={<Root/>}/>
-            <Route path="/dashboard" element={<Home/>} />
-            <Route path="/income" element={<Inome/>} />
-            <Route path="/expense" element={<Expense />} />
-            <Route path="/filter" element={<Filter />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signUp" element={<SignUp />} />
-            <Route path="/category" element={<Category />} />
+            <Route path="/root/dashboard" element={<Home/>} />
+            <Route path="/root/income" element={<Inome/>} />
+            <Route path="/root/expense" element={<Expense />} />
+            <Route path="/root/filter" element={<Filter />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signUp" element={<SignUp />} />
+            <Route path="/root/category" element={<Category />} />
           </Routes>
         </div>
         </>

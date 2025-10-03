@@ -44,7 +44,7 @@ function Login() {
       if (token) {
         localStorage.setItem("token", token);
         setUser(user);
-        navigate("/dashboard");
+        navigate("/root/dashboard");
       }
     } catch (err) {
       console.error("Login failed:", err);

@@ -5,30 +5,30 @@ export const SIDE_BAR_DATA = [
     id:"01",
     label:"Dashboard",
     icon:LayoutDashboard,
-    path:"/dashboard"
+    path:"/root/dashboard"
 },
 {
     id:"02",
     label:"Category",
     icon:List,
-    path:"/category"
+    path:"/root/category"
 },
 {
     id:"03",
     label:"Income",
     icon:Wallet,
-    path:"/income"
+    path:"/root/income"
 },
 {
     id:"04",
     label:"Expense",
     icon:Coins,
-    path:"/expense"
+    path:"/root/expense"
 },
 {
     id:"05",
     label:"Filter",
     icon:Filter,
-    path:"/filter"
+    path:"/root/filter"
 },
 ]
