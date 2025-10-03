@@ -16,8 +16,15 @@ export const useUser = () =>{
         const fetchUserData = async ()=>{
             try{
            const response = await axiosConfig.get(`${BASE_URL}${API_ENDPOINTS.PROFILE}`)
+             if(isMounted && response.data){
+                setUser(response.data);
+             }
             }catch(error){
-
+             console.log("Failed to fetch the user information",error);
+             if(isMounted){
+                clearUser();
+                navigate("/login");
+             }
             }
             
         }
