@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Dashboard from '../components/Dashboard'
 import { Plus, PlusCircle, PlusIcon, PlusSquareIcon } from 'lucide-react'
 import { FaPlus } from 'react-icons/fa'
@@ -6,8 +6,23 @@ import { useUser } from '../hook/useUser'
 import CategoryList from '../components/CategoryList'
 
 function Category() {
-    
-    useUser();
+     useUser();
+     const[loading,setLoading]=useState(false);
+     const[categoryData,setCategoryData]=useState([]);
+     const [openAddCategoryModal ,setOpenCategoryModal]=useState(false);
+     const [selectedCategory,setSelectedCategory]=useState(null);
+
+     const fetchCategoriesDetails = async()=>{
+        if(loading) return;
+        setLoading(true);
+        try{
+
+        }catch(error){
+            console.log("Error fetching categories",error);
+        }finally{
+            setLoading(false);
+        }
+     }
 
 
     return (

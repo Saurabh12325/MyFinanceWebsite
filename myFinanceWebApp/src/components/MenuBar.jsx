@@ -11,6 +11,14 @@ function MenuBar({activeMenu}) {
     const dropdownRef = useRef(null) // 
     const navigate = useNavigate();
     const {user ,clearUser} = useContext(AppContext)
+    
+        const handleLogout = () => {
+         localStorage.clear();
+         clearUser;
+         setShowDropdown(false)
+        navigate("/login")
+    
+    }
   
     useEffect(()=>{
         const handleClickOutSide = (event)=>{
@@ -26,13 +34,7 @@ function MenuBar({activeMenu}) {
     }
 },[showDropdown])
 
-    const handleLogout = () => {
-         localStorage.clear();
-         clearUser;
-         setShowDropdown(false)
-        navigate("/login")
-    
-    }
+
 
     return (
         <div className='flex item-center justify-between gap-5  bg-gradient-to-r from-black/5 via-black/5 to-emerald-500 border border-b border-graey-200/5'>
