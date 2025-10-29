@@ -1,4 +1,4 @@
-const CategoryList =({addList,EditList, deleteList})=>{
+const CategoryList =({categories,OnEditList, OndeleteList})=>{
     return(
         <div>categorylist</div>
     )

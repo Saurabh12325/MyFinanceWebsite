@@ -7,6 +7,7 @@ import CategoryList from '../components/CategoryList'
 
 function Category() {
      useUser();
+     
      const[loading,setLoading]=useState(false);
      const[categoryData,setCategoryData]=useState([]);
      const [openAddCategoryModal ,setOpenCategoryModal]=useState(false);
@@ -36,6 +37,8 @@ function Category() {
                    <Plus size={30}/>
                    Add Category
                   </button>
+
+                  {/* categryList */}
                 </div>
                 <CategoryList/>
                </div>
