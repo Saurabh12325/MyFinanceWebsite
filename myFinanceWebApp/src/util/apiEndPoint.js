@@ -11,5 +11,7 @@ export const API_ENDPOINTS = {
   UPDATE_CATEGORY: "/category/updateCategory",
   DELETE_CATEGORY: "/category/deleteCategory",
   GET_ALL_CATEGORIES: "/category/fetchAll",
+
+  GET_ALL_INCOMES : "/income",
   UPLOAD_IMAGE: `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
 };
