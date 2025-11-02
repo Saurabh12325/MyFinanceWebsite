@@ -94,7 +94,7 @@ function IncomeModal({ open, onClose, onSuccess }) {
             ))}
           </select>
 
-          {/* Amount */}
+         
           <input
             type="number"
             placeholder="Amount"
@@ -104,7 +104,7 @@ function IncomeModal({ open, onClose, onSuccess }) {
             required
           />
 
-          {/* Date */}
+    
           <input
             type="date"
             className="border p-2 rounded-md"

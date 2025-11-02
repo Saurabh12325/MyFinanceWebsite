@@ -109,13 +109,13 @@ function Home() {
             </div>
 
             {/* Pie Chart */}
-            <div className="mt-10 bg-white p-6 rounded-xl shadow-md">
+            <div className="mt-10 bg-white p-6 rounded-xl shadow-md ">
               <h3 className="text-xl font-semibold mb-4 text-gray-700 text-center">
                 Income vs Expense Distribution
               </h3>
               <div style={{ width: "100%", height: 300 }}>
-                <ResponsiveContainer>
-                  <PieChart>
+                <ResponsiveContainer >
+                  <PieChart >
                     <Pie
                       data={pieData}
                       cx="50%"
@@ -141,10 +141,10 @@ function Home() {
               </div>
             </div>
 
-            {/* Recent Transactions - Two Scrollable Grids */}
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 ">
               {/* Income Transactions */}
-              <div className="bg-green-50 p-5 rounded-xl shadow-md h-[400px] overflow-y-auto">
+              <div className="bg-green-50 p-5 rounded-xl shadow-md h-[400px] overflow-y-auto border-2">
                 <h3 className="text-xl font-semibold mb-3 text-green-700">
                   Recent Incomes
                 </h3>
@@ -174,8 +174,8 @@ function Home() {
               </div>
 
               {/* Expense Transactions */}
-              <div className="bg-red-50 p-5 rounded-xl shadow-md h-[400px] overflow-y-auto">
-                <h3 className="text-xl font-semibold mb-3 text-red-700">
+              <div className="bg-red-50 p-5 rounded-xl shadow-md h-[400px] overflow-y-auto border-2 ">
+                <h3 className="text-xl font-semibold mb-3 text-red-700 ">
                   Recent Expenses
                 </h3>
                 {expenseTransactions.length === 0 ? (
