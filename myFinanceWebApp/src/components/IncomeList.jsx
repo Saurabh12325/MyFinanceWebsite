@@ -41,14 +41,14 @@ const IncomeList = ({ incomes = [], onDelete }) => {
   };
 
   return (
-    <div className="card p-4 shadow-xl">
+    <div className="card p-4 shadow-xl border mt-2.5 rounded-md ">
       <div className="flex items-center justify-between mb-4">
         <h4 className="text-lg font-semibold">Income Records</h4>
         <div className="flex items-center gap-2">
-          <button onClick={sendEmail} className="card-btn flex items-center gap-1">
+          <button onClick={sendEmail} className="flex items-center font-bold gap-2 text-black-900 bg-emerald-50 px-4 py-2 mt-1 border rounded-lg hover:bg-emerald-100 transition">
             <Mail size={15} /> Email
           </button>
-          <button onClick={downloadExcel} className="card-btn flex items-center gap-1">
+          <button onClick={downloadExcel} className="flex items-center font-bold gap-2 text-black-900 bg-emerald-50 px-4 py-2 mt-1 border rounded-lg hover:bg-emerald-100 transition">
             <Download size={15} /> Download
           </button>
         </div>
@@ -57,11 +57,11 @@ const IncomeList = ({ incomes = [], onDelete }) => {
       {incomes.length === 0 ? (
         <p className="text-gray-500">No income records added yet. Add some to get started!</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {incomes.map((income) => (
             <div
               key={income._id || income.id}
-              className="border p-4 rounded-lg shadow-sm flex justify-between items-center cursor-pointer hover:bg-gray-100 transition-all duration-200"
+              className="border p-4 rounded-lg shadow-sm flex justify-between items-center cursor-pointer bg-white"
             >
               <div className="w-12 h-12 flex items-center justify-center text-xl text-gray-800 bg-gray-100 rounded-full">
                 <Layers2 size={24} className="text-emerald-700" />

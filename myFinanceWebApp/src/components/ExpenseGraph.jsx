@@ -34,7 +34,7 @@ function ExpenseGraph({ expenses }) {
   }, [data]);
 
   return (
-    <div className="bg-emerald-300 rounded-lg shadow p-4 mt-6">
+    <div className=" rounded-lg shadow p-4 mt-6 border bg-white">
       <h3 className="text-lg font-semibold mb-3">Expense Trend</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
@@ -47,12 +47,12 @@ function ExpenseGraph({ expenses }) {
                 month: "short",
               })
             }
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 15, fontWeight: 'bold' }}
             interval="preserveStartEnd"
           />
           <YAxis
             domain={yRange}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 15, fontWeight: 'bold' }}
             tickFormatter={(v) => `₹${v}`}
           />
           <Tooltip

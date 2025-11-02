@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import axiosConfig from "../util/axiosConfig";
 import { API_ENDPOINTS, BASE_URL } from "../util/apiEndPoint";
 
+
 function CategoryModal({ open, onClose, onSuccess, selectedCategory }) {
   const [name, setName] = useState("");
   const [type, setType] = useState(""); // ✅ new state for type
@@ -84,8 +85,9 @@ function CategoryModal({ open, onClose, onSuccess, selectedCategory }) {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* ✅ Category Name Field */}
+        
           <div>
+  
             <label className="block text-gray-700 font-medium mb-2">
               Category Name
             </label>

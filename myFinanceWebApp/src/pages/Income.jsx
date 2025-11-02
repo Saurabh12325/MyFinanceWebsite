@@ -77,29 +77,29 @@ function Income() {
   return (
     <div>
       <Dashboard activeMenu="Income">
-        <div className="my-5 mx-auto px-4">
+        <div className="my-5 mx-auto px-4 bg-emerald-100">
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-semibold">Income Management</h2>
 
             <button
               onClick={() => setOpenAddIncomeModal(true)}
-              className="flex items-center gap-2 text-emerald-900 bg-emerald-50 px-4 py-2 rounded-lg hover:bg-emerald-100 transition"
+              className="flex items-center font-bold gap-2 text-black-900 bg-emerald-50 px-4 py-2 mt-1 border rounded-lg hover:bg-emerald-100 transition "
             >
               <Plus size={24} />
               Add Income
             </button>
           </div>
 
-          {/* ✅ Graph Analysis */}
+          
           <IncomeGraph incomes={incomeData} />
 
-          {/* ✅ Income List (Card UI like CategoryList) */}
+          
           <IncomeList incomes={incomeData} onDelete={handleDeleteIncome} />
         </div>
       </Dashboard>
 
-      {/* ✅ Add Income Modal */}
+     
       <IncomeModal
         open={openAddIncomeModal}
         onClose={() => setOpenAddIncomeModal(false)}

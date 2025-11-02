@@ -35,12 +35,12 @@ function IncomeGraph({ incomes }) {
   }, [data]);
 
   return (
-    <div className=" rounded-lg shadow p-4 mt-6">
+    <div className=" rounded-lg shadow p-4 mt-6 border bg-white"> 
       <h3 className="text-lg font-semibold mb-3">Income Trend</h3>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={300} >
         <LineChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis
+          <XAxis 
             dataKey="timestamp"
             tickFormatter={(tick) =>
               new Date(tick).toLocaleDateString("en-IN", {
@@ -48,12 +48,12 @@ function IncomeGraph({ incomes }) {
                 month: "short",
               })
             }
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 15, fontWeight: 'bold' }}
             interval="preserveStartEnd"
           />
           <YAxis
             domain={yRange}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 15, fontWeight: 'bold' }}
             tickFormatter={(v) => `₹${v}`}
           />
           <Tooltip
@@ -65,12 +65,12 @@ function IncomeGraph({ incomes }) {
               })
             }
             formatter={(value) => [`₹${value}`, "Amount"]}
-            labelStyle={{ fontWeight: "bold" }}
+            labelStyle={{ fontWeight: "bolder" }}
           />
           <Line 
             type="monotone"
             dataKey="amount"
-            stroke="#6b46c3"
+            stroke="#10B981"
             strokeWidth={3}
             dot={{ r: 4 }}
             activeDot={{ r: 8 }}

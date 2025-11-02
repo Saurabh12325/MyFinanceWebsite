@@ -70,12 +70,12 @@ function Expense() {
   return (
     <div>
       <Dashboard activeMenu="Expense">
-        <div className="my-5 mx-auto px-4">
+        <div className="my-5 mx-auto px-4 bg-emerald-100">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-semibold">Expense Management</h2>
             <button
               onClick={() => setOpenAddExpenseModal(true)}
-              className="flex items-center gap-2 text-emerald-900 bg-emerald-50 px-4 py-2 rounded-lg hover:bg-emerald-100 transition"
+              className="flex items-center gap-2 text-black cursor-pointer mt-2 border font-bold bg-emerald-50 px-4 py-2 rounded-lg hover:bg-emerald-100 transition"
             >
               <Plus size={24} />
               Add Expense

@@ -64,7 +64,7 @@ function MenuBar({activeMenu}) {
                    <div className='px-4 py-3 border-b border-gray-100'>
                     <div className='flex items-center gap-3'>
                         <div className='flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full'>
-                            <User className='w-4 h-4 text-purple-600' />
+                            <User className='w-4 h-4 text-emerald-600' />
 
                         </div>
                         
