@@ -1,4 +1,3 @@
-import { VariableIcon } from "lucide-react";
 import React, { useMemo } from "react";
 import {
   LineChart,
@@ -10,21 +9,21 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function IncomeGraph({ incomes }) {
+function ExpenseGraph({ expenses }) {
   const data = useMemo(() => {
-    if (!incomes || incomes.length === 0) return [];
-    const sorted = [...incomes].sort(
+    if (!expenses || expenses.length === 0) return [];
+    const sorted = [...expenses].sort(
       (a, b) => new Date(a.date) - new Date(b.date)
     );
-    return sorted.map((inc) => ({
-      timestamp: new Date(inc.date).getTime(),
-      formattedDate: new Date(inc.date).toLocaleDateString("en-IN", {
+    return sorted.map((exp) => ({
+      timestamp: new Date(exp.date).getTime(),
+      formattedDate: new Date(exp.date).toLocaleDateString("en-IN", {
         day: "2-digit",
         month: "short",
       }),
-      amount: Number(inc.amount),
+      amount: Number(exp.amount),
     }));
-  }, [incomes]);
+  }, [expenses]);
 
   const yRange = useMemo(() => {
     if (data.length === 0) return [0, 100];
@@ -35,8 +34,8 @@ function IncomeGraph({ incomes }) {
   }, [data]);
 
   return (
-    <div className=" rounded-lg shadow p-4 mt-6">
-      <h3 className="text-lg font-semibold mb-3">Income Trend</h3>
+    <div className="bg-emerald-300 rounded-lg shadow p-4 mt-6">
+      <h3 className="text-lg font-semibold mb-3">Expense Trend</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -67,10 +66,10 @@ function IncomeGraph({ incomes }) {
             formatter={(value) => [`₹${value}`, "Amount"]}
             labelStyle={{ fontWeight: "bold" }}
           />
-          <Line 
+          <Line
             type="monotone"
             dataKey="amount"
-            stroke="#6b46c3"
+            stroke="#e11d48"
             strokeWidth={3}
             dot={{ r: 4 }}
             activeDot={{ r: 8 }}
@@ -82,4 +81,4 @@ function IncomeGraph({ incomes }) {
   );
 }
 
-export default IncomeGraph;
+export default ExpenseGraph;
