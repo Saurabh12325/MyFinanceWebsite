@@ -37,8 +37,8 @@ function MenuBar({activeMenu}) {
 
 
     return (
-        <div className='flex item-center justify-between gap-5  bg-gradient-to-r from-black/5 via-black/5 to-emerald-500 border border-b border-graey-200/5'>
-            {/* Left Section -Menu button and tittle  */}
+        <div className='flex item-center justify-between gap-5  bg-gradient-to-r from-black/5 via-black/5 to-emerald-500 border border-b border-graey-200/5 px-5 py-3  sticky top-0 z-20'>
+       
             <div className="flex item-center gap-5">
                 <button 
                 onClick={()=>setOpenSidebar(!openSidebar)}

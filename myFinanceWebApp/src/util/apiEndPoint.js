@@ -14,7 +14,7 @@ export const API_ENDPOINTS = {
   GET_ALL_INCOMES : "/income",
   ADD_INCOME: "/income/add",
   DELETE_INCOME: "/income",
-
+  GET_ALL_DASHBOARD: "/dashboard",
   ADD_EXPENSE: "/expense/add",
   GET_ALL_EXPENSES: "/expense",
   DELETE_EXPENSE: "/expense",
