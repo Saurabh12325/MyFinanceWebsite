@@ -78,7 +78,7 @@ function Home() {
           </div>
 
           <div className="grow mx-5 mt-5">
-            {/* Header */}
+           
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div className="bg-green-100 p-4 rounded-xl shadow-md">
                 <h2 className="text-lg font-semibold text-green-700">Total Balance</h2>
@@ -108,7 +108,7 @@ function Home() {
               </div>
             </div>
 
-            {/* Pie Chart */}
+            {/* Pie Chart  use*/}
             <div className="mt-10 bg-white p-6 rounded-xl shadow-md ">
               <h3 className="text-xl font-semibold mb-4 text-gray-700 text-center">
                 Income vs Expense Distribution

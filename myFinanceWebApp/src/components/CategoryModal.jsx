@@ -7,21 +7,20 @@ import { API_ENDPOINTS, BASE_URL } from "../util/apiEndPoint";
 
 function CategoryModal({ open, onClose, onSuccess, selectedCategory }) {
   const [name, setName] = useState("");
-  const [type, setType] = useState(""); // ✅ new state for type
+  const [type, setType] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // ✅ Fill data if editing
+  
   useEffect(() => {
     if (selectedCategory) {
       setName(selectedCategory.name || "");
-      setType(selectedCategory.type || ""); // prefill existing type
+      setType(selectedCategory.type || ""); 
     } else {
       setName("");
       setType("");
     }
   }, [selectedCategory]);
 
-  // ✅ Add or Update category
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -37,7 +36,7 @@ function CategoryModal({ open, onClose, onSuccess, selectedCategory }) {
     setLoading(true);
     try {
       if (selectedCategory) {
-        // 🔹 Update category
+       
         const response = await axiosConfig.put(
           `${BASE_URL}${API_ENDPOINTS.UPDATE_CATEGORY}/${selectedCategory.id}`,
           { name, type }
@@ -48,7 +47,7 @@ function CategoryModal({ open, onClose, onSuccess, selectedCategory }) {
           onClose();
         }
       } else {
-        // 🔹 Add category
+      
         const response = await axiosConfig.post(
           `${BASE_URL}${API_ENDPOINTS.ADD_CATEGORY}`,
           { name, type }
@@ -72,7 +71,7 @@ function CategoryModal({ open, onClose, onSuccess, selectedCategory }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white w-full max-w-md rounded-2xl shadow-lg p-6 relative">
-        {/* ❌ Close Button */}
+     
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-600 hover:text-red-500"
@@ -100,7 +99,7 @@ function CategoryModal({ open, onClose, onSuccess, selectedCategory }) {
             />
           </div>
 
-          {/* ✅ Category Type Dropdown */}
+          
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Category Type
@@ -116,7 +115,7 @@ function CategoryModal({ open, onClose, onSuccess, selectedCategory }) {
             </select>
           </div>
 
-          {/* ✅ Buttons */}
+         
           <div className="flex justify-end gap-2">
             <button
               type="button"

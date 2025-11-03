@@ -4,12 +4,12 @@ import { Edit2, Layers2, Pencil, Trash2 } from 'lucide-react'; // Optional icons
 const CategoryList = ({ categories, onEditList, onDeleteList }) => {
   return (
     <div className="card p-4  shadow-xl ">
-      {/* Header */}
+     
       <div className="flex items-center justify-between mb-4">
         <h4 className="text-lg font-semibold">Category Sources</h4>
       </div>
 
-      {/* If no categories */}
+  
       {categories.length === 0 ? (
         <p className="text-gray-500">
           No categories added yet. Add some to get started!
@@ -37,13 +37,13 @@ const CategoryList = ({ categories, onEditList, onDeleteList }) => {
                 )}
               </div>
 
-              {/* Category Name */}
+              
               <div className="flex-1 ml-4">
                 <h5 className="font-semibold">{category.name}</h5>
                 <p className="text-sm text-gray-500">{category.type}</p>
               </div>
 
-              {/* Action Buttons */}
+             
               <div className="flex gap-2">
                 <button
                   onClick={() => onEditList(category)}

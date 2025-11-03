@@ -51,7 +51,7 @@ function MenuBar({activeMenu}) {
                     <span className='text-xl font-medium text-black'>MyFinance</span>
                 </div>
             </div>
-            {/*Right side -Avatar photo*/}
+            
            <div className='relative' ref={dropdownRef}>
               <button
               onClick={()=>setShowDropdown(!showDropdown)}
